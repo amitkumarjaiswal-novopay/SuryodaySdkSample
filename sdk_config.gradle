@@ -1,0 +1,6 @@
+ext {
+    API_KEY = "1579514199220"
+    NUM_HASHED_BYTES = 9
+    NUM_BASE64_CHAR = 11
+    HASH_TYPE = "SHA-256"
+}
