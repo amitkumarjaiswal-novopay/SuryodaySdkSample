@@ -42,8 +42,7 @@ public class MainActivity extends AppCompatActivity {
                         R.layout.activity_main
                 );
 
-        //"M2"
-        //"M3"
+        //"M1"
         binding.btnOpenSdSdk.setOnClickListener(view -> startSuryodaySdk(binding.etMobile.getText().toString()));
     }
 
