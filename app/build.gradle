@@ -3,20 +3,21 @@ apply from: '../sdk_config.gradle'
 apply plugin: 'realm-android'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.1"
+    compileSdkVersion Integer.parseInt(project.COMPILE_SDK_VERSION)
+    buildToolsVersion project.BUILD_TOOLS_VERSION
 
     defaultConfig {
         applicationId "com.carlsberg_stack.samudayapp"
-        minSdkVersion 23
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion Integer.parseInt(project.MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(project.TARGET_SDK_VERSION)
+        versionCode Integer.parseInt(project.APP_VERSION_CODE)
+        versionName project.APP_VERSION_NAME
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "API_KEY", "\"$API_KEY\""
         buildConfigField "String", "NUM_HASHED_BYTES", "\"$NUM_HASHED_BYTES\""
         buildConfigField "String", "NUM_BASE64_CHAR", "\"$NUM_BASE64_CHAR\""
         buildConfigField "String", "HASH_TYPE", "\"$HASH_TYPE\""
+        setProperty("archivesBaseName", "Samuday_v$versionName")
     }
 
     buildTypes {
@@ -26,6 +27,14 @@ android {
         }
     }
 
+    signingConfigs {
+        release {
+            storeFile file("keystore/samudayapp.jks")
+            storePassword "samudayapp"
+            keyAlias "samudayapp"
+            keyPassword "samudayapp"
+        }
+    }
     dataBinding {
         enabled = true
     }
