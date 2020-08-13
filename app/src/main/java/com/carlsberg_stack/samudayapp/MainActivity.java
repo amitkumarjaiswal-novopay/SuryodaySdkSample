@@ -54,8 +54,9 @@ public class MainActivity extends AppCompatActivity {
                 BuildConfig.API_KEY,
                 SuryodaySdk.SuryodayaEnvironment.QA,
                 getAppSignatures().get(0),
-                "debug_app"
-        );
+                "debug_app",
+                MainActivity.class);
+        onBackPressed();
     }
 
     private void registerSuryodaySdk() {
