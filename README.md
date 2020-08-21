@@ -11,16 +11,9 @@ Has a dependancy of mavenLocal.
 ```
 allprojects {
     repositories {
-        google()
-        jcenter()
-
+        ...
         maven {
-            url "https://jfrog-repository.novopay.in/artifactory/libs-release/"
-            credentials{
-              username = "shruthi.n@novopay.in" // The publisher user name
-              password = "N0v0WQSX678" // The publisher password
-          }
-//            url "C:/Users/Admin/.m2/repository"
+                url "C:/Users/Admin/.m2/repository"
         }
     }
 }
