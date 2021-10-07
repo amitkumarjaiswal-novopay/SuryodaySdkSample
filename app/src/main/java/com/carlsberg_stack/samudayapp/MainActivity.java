@@ -15,9 +15,9 @@ import android.widget.Toast;
 
 import com.carlsberg_stack.samudayapp.databinding.ActivityMainBinding;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
+//import org.greenrobot.eventbus.EventBus;
+//import org.greenrobot.eventbus.Subscribe;
+//import org.greenrobot.eventbus.ThreadMode;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -25,9 +25,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import in.novopay.sbagency.SuryodaySdk;
-import in.novopay.sbagency.SuryodaySdkStatus;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -46,33 +43,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startSuryodaySdk(String mobileNum) {
-        registerSuryodaySdk();
-
-        SuryodaySdk.launch(
-                this,
-                mobileNum,
-                BuildConfig.API_KEY,
-                SuryodaySdk.SuryodayaEnvironment.QA,
-                getAppSignatures().get(0),
-                "debug_app",MainActivity.class);
-        onBackPressed();
+//        registerSuryodaySdk();
+//
+//        StartCustomerAppsSdk.launch(
+//                this,
+//                mobileNum,
+//                BuildConfig.API_KEY,
+//                SuryodaySdk.SuryodayaEnvironment.QA,
+//                getAppSignatures().get(0),
+//                "debug_app",MainActivity.class);
+//        onBackPressed();
     }
 
     private void registerSuryodaySdk() {
-        if (!EventBus.getDefault().isRegistered(this)) {
-            EventBus.getDefault().register(this);
-        }
+//        if (!EventBus.getDefault().isRegistered(this)) {
+//            EventBus.getDefault().register(this);
+//        }
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onSuryodaySdkStatusUpdate(SuryodaySdkStatus suryodaySdkStatus) {
-        Toast.makeText(this, suryodaySdkStatus.getMessage(), Toast.LENGTH_SHORT).show();
-    }
+//    @Subscribe(threadMode = ThreadMode.MAIN)
+//    public void onSuryodaySdkStatusUpdate(SuryodaySdkStatus suryodaySdkStatus) {
+//        Toast.makeText(this, suryodaySdkStatus.getMessage(), Toast.LENGTH_SHORT).show();
+//    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
+//        EventBus.getDefault().unregister(this);
     }
 
     public ArrayList<String> getAppSignatures() {
