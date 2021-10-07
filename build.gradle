@@ -17,6 +17,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
 
         maven {
             url "https://paymentsandcardsnovopay.jfrog.io/artifactory/pncnovopay-gradle-release-local/"
