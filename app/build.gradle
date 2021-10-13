@@ -17,7 +17,7 @@ android {
         buildConfigField "String", "NUM_HASHED_BYTES", "\"$NUM_HASHED_BYTES\""
         buildConfigField "String", "NUM_BASE64_CHAR", "\"$NUM_BASE64_CHAR\""
         buildConfigField "String", "HASH_TYPE", "\"$HASH_TYPE\""
-        setProperty("archivesBaseName", "Samuday_v$versionName")
+        setProperty("archivesBaseName", "Waas Sdk_v$versionName")
     }
 
     buildTypes {
@@ -46,13 +46,6 @@ android {
     ndkVersion "22.1.7171670"
 }
 
-allprojects {
-    repositories {
-        jcenter()
-        maven { url 'https://jitpack.io' }
-    }
-}
-
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -61,9 +54,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 //    implementation "in.novopay.sbagency:app:1.0.21"
-    implementation(group: 'in.digiapp.waas', name: 'app', version: '1.0.0_18', ext: 'aar') {
+    implementation(group: 'in.digiapp.waas', name: 'app', version: '1.0.0_27', ext: 'aar') {
         transitive true
     }
 
-    implementation 'com.google.android.material:material:1.0.0-beta01'
+    implementation 'com.google.android.material:material:1.4.0'
 }

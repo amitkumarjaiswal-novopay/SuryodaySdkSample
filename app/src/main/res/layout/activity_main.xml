@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -9,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorAccent"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="16dp"
@@ -19,23 +21,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SDK Demo App"
+            android:textColor="@android:color/white"
             android:textStyle="italic" />
 
-        <EditText
-            android:id="@+id/etMobile"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Mobile number"
-            android:inputType="phone"
-            android:text="9821166128" />
+            app:endIconMode="clear_text"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Mobile number"
+                android:inputType="phone"
+                android:text="9821166128" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
+            style="@style/Widget.MaterialComponents.Button"
             android:id="@+id/btnOpenSdSdk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:hint="Open Suryoday SDK"
-            android:textColor="#FFF" />
+            android:layout_marginTop="16dp"
+            android:text="Open SDK"/>
     </LinearLayout>
 </layout>
