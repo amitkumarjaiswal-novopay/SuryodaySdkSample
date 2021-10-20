@@ -4,30 +4,25 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Base64;
-import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
-import com.carlsberg_stack.samudayapp.databinding.ActivityMainBinding;
+
+import com.carlsberg_stack.samudayapp.databinding.ActivityMainSdkBinding;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import in.digiapp.waas.CustomerAppsSdkStatus;
 import in.digiapp.waas.StartCustomerAppsSdk;
@@ -38,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainBinding binding =
+        ActivityMainSdkBinding binding =
                 DataBindingUtil.setContentView(
                         this,
-                        R.layout.activity_main
+                        R.layout.activity_main_sdk
                 );
 
         binding.btnOpenSdSdk.setOnClickListener(view -> startSuryodaySdk(binding.etMobile.getText().toString()));

@@ -20,21 +20,27 @@ android {
         setProperty("archivesBaseName", "Waas Sdk_v$versionName")
     }
 
-    buildTypes {
+    signingConfigs {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            storeFile file("keystore/waas_sdk.jks")
+            storePassword "waas_sdk"
+            keyAlias "waas_sdk"
+            keyPassword "waas_sdk"
         }
     }
 
-    signingConfigs {
+    buildTypes {
         release {
-            storeFile file("keystore/samudayapp.jks")
-            storePassword "samudayapp"
-            keyAlias "samudayapp"
-            keyPassword "samudayapp"
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     dataBinding {
         enabled = true
     }
@@ -54,7 +60,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 //    implementation "in.novopay.sbagency:app:1.0.21"
-    implementation(group: 'in.digiapp.waas', name: 'app', version: '1.0.0_27', ext: 'aar') {
+    implementation(group: 'in.digiapp.waas', name: 'app', version: '1.0.0_31', ext: 'aar') {
         transitive true
     }
 
