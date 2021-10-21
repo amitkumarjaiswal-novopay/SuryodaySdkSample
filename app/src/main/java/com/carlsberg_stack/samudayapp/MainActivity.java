@@ -39,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
                         R.layout.activity_main_sdk
                 );
 
-        binding.btnOpenSdSdk.setOnClickListener(view -> startSuryodaySdk(binding.etMobile.getText().toString()));
+        binding.btnOpenSdSdk.setOnClickListener(view -> startWaasSdk(binding.etMobile.getText().toString()));
     }
 
-    private void startSuryodaySdk(String mobileNum) {
-        registerSuryodaySdk();
+    private void startWaasSdk(String mobileNum) {
+        registerWaasSdk();
 
         StartCustomerAppsSdk.launch(
                 this,
@@ -53,14 +53,14 @@ public class MainActivity extends AppCompatActivity {
                 getAppSignatures().get(0));
     }
 
-    private void registerSuryodaySdk() {
+    private void registerWaasSdk() {
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this);
         }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onSuryodaySdkStatusUpdate(CustomerAppsSdkStatus suryodaySdkStatus) {
+    public void onWaasSdkStatusUpdate(CustomerAppsSdkStatus suryodaySdkStatus) {
         Toast.makeText(this, suryodaySdkStatus.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
