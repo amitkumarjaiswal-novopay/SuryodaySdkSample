@@ -24,8 +24,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import in.digiapp.waas.CustomerAppsSdkStatus;
-import in.digiapp.waas.StartCustomerAppsSdk;
+import in.novopay.card.StartCardSdk;
+import in.novopay.supportlib.StartWaasSdk;
+import in.novopay.supportlib.WaasSdkStatus;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -43,6 +44,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startWaasSdk(String mobileNum) {
+        registerWaasSdk();
+
+        StartCardSdk.launch(
+                this,
+                mobileNum,
+                BuildConfig.API_KEY,
+                StartWaasSdk.WaasEnvironment.QA,
+                getAppSignatures().get(0));
+    }
+
+    private void registerWaasSdk() {
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onWaasSdkStatusUpdate(WaasSdkStatus sdkStatus) {
+        Toast.makeText(this, sdkStatus.getMessage(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    /*private void startWaasSdk(String mobileNum) {
         registerWaasSdk();
 
         StartCustomerAppsSdk.launch(
@@ -68,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
-    }
+    }*/
 
     public ArrayList<String> getAppSignatures() {
         ArrayList<String> appCodes = new ArrayList<>();

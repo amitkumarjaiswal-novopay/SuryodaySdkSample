@@ -20,7 +20,8 @@ allprojects {
         maven { url 'https://jitpack.io' }
 
         maven {
-            url "https://paymentsandcardsnovopay.jfrog.io/artifactory/pncnovopay-gradle-release-local/"
+//            url "https://paymentsandcardsnovopay.jfrog.io/artifactory/pncnovopay-gradle-release-local/"
+            url "https://paymentsandcardsnovopay.jfrog.io/artifactory/pnc-card-gradle-release-local/"
             credentials  {
                 username = "shruthi.n@novopay.in"
                 password = "Impetus@12345"
