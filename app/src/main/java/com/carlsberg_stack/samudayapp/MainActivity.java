@@ -24,8 +24,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import in.digiapp.waas.CustomerAppsSdkStatus;
-import in.digiapp.waas.StartCustomerAppsSdk;
+import in.novopay.myqrcodelib.MyQrCodeSdkStatus;
+import in.novopay.myqrcodelib.StartMyQrCodeSdk;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -45,11 +45,11 @@ public class MainActivity extends AppCompatActivity {
     private void startSuryodaySdk(String mobileNum) {
         registerSuryodaySdk();
 
-        StartCustomerAppsSdk.launch(
+        StartMyQrCodeSdk.launch(
                 this,
                 mobileNum,
                 BuildConfig.API_KEY,
-                StartCustomerAppsSdk.WaasEnvironment.QA,
+                StartMyQrCodeSdk.WaasEnvironment.QA,
                 getAppSignatures().get(0));
     }
 
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onSuryodaySdkStatusUpdate(CustomerAppsSdkStatus suryodaySdkStatus) {
+    public void onSuryodaySdkStatusUpdate(MyQrCodeSdkStatus suryodaySdkStatus) {
         Toast.makeText(this, suryodaySdkStatus.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
