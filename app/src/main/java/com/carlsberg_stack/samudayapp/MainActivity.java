@@ -23,7 +23,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import in.novopay.recharge.StartRechargeSdk;
+
+import in.novopay.billpay.StartBillPaySdk;
 import in.novopay.supportlib.StartWaasSdk;
 import in.novopay.supportlib.WaasSdkStatus;
 
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private void startSuryodaySdk(String mobileNum) {
         registerSuryodaySdk();
 
-        StartRechargeSdk.launch(
+        StartBillPaySdk.launch(
                 this,
                 mobileNum,
                 BuildConfig.API_KEY,
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onRechargeSdkStatusUpdate(WaasSdkStatus sdkStatus) {
+    public void onBillPaySdkStatusUpdate(WaasSdkStatus sdkStatus) {
         Toast.makeText(this, sdkStatus.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
