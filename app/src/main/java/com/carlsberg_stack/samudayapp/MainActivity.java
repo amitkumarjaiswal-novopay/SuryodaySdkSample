@@ -24,7 +24,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import in.novopay.card.StartCardSdk;
+import in.novopay.sendMoney.StartSendMoneySdk;
 import in.novopay.supportlib.StartWaasSdk;
 import in.novopay.supportlib.WaasSdkStatus;
 
@@ -46,12 +46,19 @@ public class MainActivity extends AppCompatActivity {
     private void startWaasSdk(String mobileNum) {
         registerWaasSdk();
 
-        StartCardSdk.launch(
+        StartSendMoneySdk.launch(
                 this,
                 mobileNum,
                 BuildConfig.API_KEY,
                 StartWaasSdk.WaasEnvironment.QA,
                 getAppSignatures().get(0));
+
+//        StartSendMoneySdk.launch(
+//                requireContext(),
+//                "9821166128",
+//                "4051c9d9d616Jvuy0B3Y817t4ow",
+//                StartWaasSdk.WaasEnvironment.QA,
+//                getAppKey(requireContext()))
     }
 
     private void registerWaasSdk() {
