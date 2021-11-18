@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.carlsberg_stack.samudayapp"
-        minSdkVersion Integer.parseInt(project.MIN_SDK_VERSION)
+        minSdkVersion 23
         targetSdkVersion Integer.parseInt(project.TARGET_SDK_VERSION)
         versionCode Integer.parseInt(project.APP_VERSION_CODE)
         versionName project.APP_VERSION_NAME
@@ -60,7 +60,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 //    implementation "in.novopay.sbagency:app:1.0.21"
-    implementation(group: 'in.digiapp.waas', name: 'billPayLib', version: '1.0.0', ext: 'aar') {
+    implementation(group: 'in.digiapp.waas', name: 'minKycLib', version: '1.0.0_2', ext: 'aar') {
         transitive true
     }
 
