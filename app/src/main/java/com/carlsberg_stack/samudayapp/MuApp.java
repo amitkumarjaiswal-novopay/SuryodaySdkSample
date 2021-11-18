@@ -9,13 +9,5 @@ public class MuApp extends SupportLibApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        Realm.init(this);
-        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
-                .deleteRealmIfMigrationNeeded()
-                .name(ConfigUtil.REALM_FILE_NAME)
-                .modules(Realm.getDefaultModule()/*, new DracarysModule()*/)
-                .schemaVersion(ConfigUtil.REALM_SCHEMA_VERSION)
-                .build();
-        Realm.setDefaultConfiguration(realmConfiguration);
     }
 }

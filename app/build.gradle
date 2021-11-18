@@ -61,7 +61,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 //    implementation "in.novopay.sbagency:app:1.0.21"
 //    implementation(group: 'in.digiapp.waas', name: 'app', version: '1.0.1_snapshot', ext: 'aar') {
-    implementation(group: 'in.digiapp.waas', name: 'sendMoney', version: '1.0.0_5', ext: 'aar') {
+    implementation(group: 'in.digiapp.waas', name: 'loadMoneyLib', version: '1.0.0_3', ext: 'aar') {
         transitive true
     }
 
