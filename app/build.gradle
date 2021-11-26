@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply from: '../sdk_config.gradle'
-apply plugin: 'realm-android'
+//apply plugin: 'realm-android'
 
 android {
     compileSdkVersion Integer.parseInt(project.COMPILE_SDK_VERSION)
@@ -61,7 +61,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 //    implementation "in.novopay.sbagency:app:1.0.21"
 //    implementation(group: 'in.digiapp.waas', name: 'app', version: '1.0.1_snapshot', ext: 'aar') {
-    implementation(group: 'in.digiapp.waas', name: 'insuranceLib', version: '1.0.0', ext: 'aar') {
+    implementation(group: 'in.digiapp.waas', name: 'insuranceLib', version: '1.0.0_1', ext: 'aar') {
         transitive true
     }
 
