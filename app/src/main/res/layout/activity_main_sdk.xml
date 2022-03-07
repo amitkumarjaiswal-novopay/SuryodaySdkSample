@@ -20,12 +20,13 @@
             style="@style/TextAppearance.MaterialComponents.Headline5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SDK Demo App"
+            android:text="Waas SDK Sample"
             android:textColor="@android:color/white"
             android:textStyle="italic" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
+            android:layout_marginTop="16dp"
             app:endIconMode="clear_text"
             android:layout_height="wrap_content">
 
@@ -35,8 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="Mobile number"
-                android:inputType="phone"
-                android:text="9731560056" />
+                android:inputType="phone" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -46,6 +46,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Open SDK"/>
+            android:text="Start SDK"/>
     </LinearLayout>
 </layout>

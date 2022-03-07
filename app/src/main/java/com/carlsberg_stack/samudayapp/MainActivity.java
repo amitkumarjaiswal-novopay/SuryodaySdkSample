@@ -24,44 +24,36 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import in.novopay.myqrcodelib.MyQrCodeSdkStatus;
-import in.novopay.myqrcodelib.StartMyQrCodeSdk;
-
+import in.digiapp.waas.CustomerAppsSdkStatus;
+import in.digiapp.waas.StartCustomerAppsSdk;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainSdkBinding binding =
-                DataBindingUtil.setContentView(
-                        this,
-                        R.layout.activity_main_sdk
-                );
-
-        binding.btnOpenSdSdk.setOnClickListener(view -> startSuryodaySdk(binding.etMobile.getText().toString()));
+        ActivityMainSdkBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main_sdk);
+        binding.btnOpenSdSdk.setOnClickListener(view -> startNeoBankSdk(binding.etMobile.getText().toString()));
     }
 
-    private void startSuryodaySdk(String mobileNum) {
-        registerSuryodaySdk();
-
-        StartMyQrCodeSdk.launch(
-                this,
+    private void startNeoBankSdk(String mobileNum) {
+        registerCustomerAppsSdk();
+        StartCustomerAppsSdk.launch(this,
                 mobileNum,
                 BuildConfig.API_KEY,
-                StartMyQrCodeSdk.WaasEnvironment.QA,
+                StartCustomerAppsSdk.WaasEnvironment.QA,
                 getAppSignatures().get(0));
     }
 
-    private void registerSuryodaySdk() {
+    private void registerCustomerAppsSdk() {
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this);
         }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onSuryodaySdkStatusUpdate(MyQrCodeSdkStatus suryodaySdkStatus) {
-        Toast.makeText(this, suryodaySdkStatus.getMessage(), Toast.LENGTH_SHORT).show();
+    public void onCustomerAppSdkStatusUpdate(CustomerAppsSdkStatus customerAppsSdkStatus) {
+        Toast.makeText(this, customerAppsSdkStatus.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
